@@ -2,8 +2,11 @@ const log = console.log;
 // log("Hello World");
 
 // START Computer decides on choice
-// COMPUTE randomly 1, 2, or 3 for computer's choice
-// SET variable to computer's choice
+function getComputerChoice() {
+    // COMPUTE randomly 1, 2, or 3 for computer's choice
+    // SET variable to computer's choice
+    let computerChoice = Math.floor(Math.random() * 3) + 1;
+    log(computerChoice);
 // IF choice is 1 THEN
 //  SET variable to "rock"
 // ELSE IF choice is 2 THEN
@@ -13,4 +16,7 @@ const log = console.log;
 // ELSE
 //  PRINT warning
 // ENDIF
+}
+// CALL computer choice function
+getComputerChoice();
 // END Computer decides on choice
