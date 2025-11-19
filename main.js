@@ -48,3 +48,7 @@ function getHumanChoice () {
 // CALL human choice function
 getHumanChoice();
 // END Human decides on a choice
+// SET variables for human score and computer score to track
+// SET current scores to 0
+let humanScore = 0;
+let computerScore = 0;
