@@ -139,14 +139,24 @@ function playRound(humanChoice, computerChoice) {
 }
 // END playRound function
 
-// SET variable humanSelection to run the get human choice function
-let humanSelection = getHumanChoice();
-// SET variable computerSelection to run the get computer choice function
-let computerSelection = getComputerChoice();
-
 // START playGame function with number of rounds as a variable defaulted to 5
-// REPEAT
-// CALL playRound function with humanSelection and computerSelection
-// UNTIL number of rounds have passed
+function playGame(rounds = 5) {
+    // SET i to 0
+    let i = 0;
+    // WHILE i less than number of rounds
+    while (i < rounds) {
+        // SET variable humanSelection to run the get human choice function
+        let humanSelection = getHumanChoice();
+        // SET variable computerSelection to run the get computer choice function
+        let computerSelection = getComputerChoice();
+        // CALL playRound function with humanSelection and computerSelection
+        playRound(humanSelection, computerSelection);
+        // INCREMENT i
+        i++;
+    }
+    // ENDWHILE
+}
 // END playGame function
+
 // CALL playGame function
+playGame();
