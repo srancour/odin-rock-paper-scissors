@@ -87,34 +87,62 @@ function playRound(humanChoice, computerChoice) {
             //  INCREMENT human score
             humanScore++;
         }
-    }
-// ELSE IF human choice is paper and computer choice is rock THEN
-//  PRINT "You win! Paper covers Rock"
-//  INCREMENT human score
-// ELSE IF human choice is paper and computer choice is paper THEN
-//  PRINT "You tie! Paper ties with Paper"
-// ELSE IF human choice is paper and computer choice is scissors THEN
-//  PRINT "You lose! Scissors cut Paper"
-//  INCREMENT computer score
-// ELSE IF human choice is scissors and computer choice is rock THEN
-//  PRINT "You lose! Rock crushes Scissors"
-//  INCREMENT computer score
-// ELSE IF human choice is scissors and computer choice is paper THEN
-//  PRINT "You win! Scissors cut Paper"
-//  INCREMENT human score
-// ELSE IF human choice is scissors and computer choice is scissors THEN
-//  PRINT "You tie! Scissors ties with Scissors"
-    // ELSE
+        //ENDIF
+    } // ELSE IF human choice is paper THEN
+    else if (humanChoice === "paper") {
+        // IF computer choice is rock THEN
+        if (computerChoice === "rock") {
+            //  PRINT "You win! Paper covers Rock"
+            log("You win! Paper covers Rock");
+            //  INCREMENT human score
+            humanScore++;
+        } // ELSE IF computer choice is paper THEN
+        else if (computerChoice === "paper") {
+            //  PRINT "You tie! Paper ties with Paper"
+            log("You tie! Paper ties with Paper");
+        } // ELSE IF computer choice is scissors THEN
+        else if (computerChoice === "scissors") {
+            //  PRINT "You lose! Scissors cut Paper"
+            log("You lose! Scissors cut Paper")
+            //  INCREMENT computer score
+            computerScore++;
+        }
+        //ENDIF
+    } // ELSE IF human choice is scissors THEN
+    else if (humanChoice === "scissors") {
+        // IF computer choice is rock THEN
+        if (computerChoice === "rock") {
+            //  PRINT "You lose! Rock crushes Scissors"
+            log("You lose! Rock crushes Scissors");
+            //  INCREMENT computer score
+            computerScore++;
+        } // ELSE IF computer choice is paper THEN
+        else if (computerChoice === "paper") {
+            //  PRINT "You win! Scissors cut Paper"
+            log("You win! Scissors cut Paper");
+            //  INCREMENT human score
+            humanScore++;
+        } // ELSE IF computer choice is scissors THEN
+        else if (computerChoice === "scissors") {
+            //  PRINT "You tie! Scissors ties with Scissors"
+            log("You tie! Scissors ties with Scissors");
+        }
+        //ENDIF
+    } // ELSE
     else {
         //  PRINT "Something went wrong!"
         log("Something went wrong!");
     }
-// ENDIF
+    // ENDIF
+    // PRINT current score
+    log(`Current score: You ${humanScore} / Computer ${computerScore}`);
 }
 // END playRound function
+
 // SET variable humanSelection to run the get human choice function
 let humanSelection = getHumanChoice();
 // SET variable computerSelection to run the get computer choice function
 let computerSelection = getComputerChoice();
 // CALL playRound function with humanSelection and computerSelection
 playRound(humanSelection, computerSelection);
+
