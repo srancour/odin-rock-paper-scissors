@@ -143,6 +143,10 @@ function playRound(humanChoice, computerChoice) {
 let humanSelection = getHumanChoice();
 // SET variable computerSelection to run the get computer choice function
 let computerSelection = getComputerChoice();
-// CALL playRound function with humanSelection and computerSelection
-playRound(humanSelection, computerSelection);
 
+// START playGame function with number of rounds as a variable defaulted to 5
+// REPEAT
+// CALL playRound function with humanSelection and computerSelection
+// UNTIL number of rounds have passed
+// END playGame function
+// CALL playGame function
