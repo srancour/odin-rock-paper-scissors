@@ -35,6 +35,7 @@ function getHumanChoice () {
     // DISPLAY "Rock, paper, or scissors?"
     // GET Human choice
     let humanChoice = prompt("Rock, paper, or scissors");
+    // SET humanChoice to lower case so no matter what a user puts in, it will work
     humanChoice = humanChoice.toLowerCase();
     // IF Human choice is rock, paper, or scissors THEN move on
     if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
@@ -52,3 +53,31 @@ getHumanChoice();
 // SET current scores to 0
 let humanScore = 0;
 let computerScore = 0;
+
+// START playRound function that takes human choice and computer choice as parameters
+// IF human choice is rock and computer choice is rock THEN
+//  PRINT "You tie! Rock ties with Rock"
+// ELSE IF human choice is rock and computer choice is paper THEN
+//  PRINT "You lose! Paper covers Rock"
+//  INCREMENT computer score
+// ELSE IF human choice is rock and computer choice is scissors THEN
+//  PRINT "You win! Rock crushes Scissors"
+//  INCREMENT human score
+// ELSE IF human choice is paper and computer choice is rock THEN
+//  PRINT "You win! Paper covers Rock"
+//  INCREMENT human score
+// ELSE IF human choice is paper and computer choice is paper THEN
+//  PRINT "You tie! Paper ties with Paper"
+// ELSE IF human choice is paper and computer choice is scissors THEN
+//  PRINT "You lose! Scissors cut Paper"
+//  INCREMENT computer score
+// ELSE IF human choice is scissors and computer choice is rock THEN
+//  PRINT "You lose! Rock crushes Scissors"
+//  INCREMENT computer score
+// ELSE IF human choice is scissors and computer choice is paper THEN
+//  PRINT "You win! Scissors cut Paper"
+//  INCREMENT human score
+// ELSE IF human choice is scissors and computer choice is scissors THEN
+//  PRINT "You tie! Scissors ties with Scissors"
+// ELSE
+//  PRINT "Something went wrong"
