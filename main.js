@@ -11,20 +11,31 @@ function getComputerChoice() {
     if (computerChoice === 1){
         //  SET variable to "rock"
         computerChoice = "rock";
+        // PRINT computerChoice
+        log(computerChoice);
+        // RETURN computerChoice
+        return computerChoice;
     } // ELSE IF choice is 2 THEN
     else if (computerChoice === 2){
         //  SET variable to "paper"
         computerChoice = "paper";
+        // PRINT computerChoice
+        log(computerChoice);
+        // RETURN computerChoice
+        return computerChoice;
     } // ELSE IF choice is 3 THEN
     else if (computerChoice === 3){
         //  SET variable to "scissors"
         computerChoice = "scissors";
+        // PRINT computerChoice
+        log(computerChoice);
+        // RETURN computerChoice
+        return computerChoice;
     } // ELSE
     else {
         //  PRINT warning
         console.warn("Number out of bounds");
     } // ENDIF
-    log(computerChoice);
 }
 // CALL computer choice function
 // getComputerChoice();
@@ -39,7 +50,8 @@ function getHumanChoice () {
     humanChoice = humanChoice.toLowerCase();
     // IF Human choice is rock, paper, or scissors THEN move on
     if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
-
+        // RETURN humanChoice
+        return humanChoice;
     } // ELSE DISPLAY "Not a valid choice. Rock, paper, or scissors"
     else {
         // GET Human choice
@@ -55,14 +67,27 @@ let humanScore = 0;
 let computerScore = 0;
 
 // START playRound function that takes human choice and computer choice as parameters
-// IF human choice is rock and computer choice is rock THEN
-//  PRINT "You tie! Rock ties with Rock"
-// ELSE IF human choice is rock and computer choice is paper THEN
-//  PRINT "You lose! Paper covers Rock"
-//  INCREMENT computer score
-// ELSE IF human choice is rock and computer choice is scissors THEN
-//  PRINT "You win! Rock crushes Scissors"
-//  INCREMENT human score
+function playRound(humanChoice, computerChoice) {
+// IF human choice is rock THEN
+    if (humanChoice === "rock") {
+        // IF computer choice is rock THEN
+        if (computerChoice === "rock") {
+            //  PRINT "You tie! Rock ties with Rock"
+            log("You tie! Rock ties with Rock");
+        } // ELSE IF computer choice is paper THEN
+        else if (computerChoice === "paper") {
+            //  PRINT "You lose! Paper covers Rock"
+            log("You lose! Paper covers Rock");
+            //  INCREMENT computer score
+            computerScore++;
+        } // ELSE IF computer choice is scissors THEN
+        else if (computerChoice === "scissors") {
+            //  PRINT "You win! Rock crushes Scissors"
+            log("You win! Rock crushes Scissors");
+            //  INCREMENT human score
+            humanScore++;
+        }
+    }
 // ELSE IF human choice is paper and computer choice is rock THEN
 //  PRINT "You win! Paper covers Rock"
 //  INCREMENT human score
@@ -79,10 +104,17 @@ let computerScore = 0;
 //  INCREMENT human score
 // ELSE IF human choice is scissors and computer choice is scissors THEN
 //  PRINT "You tie! Scissors ties with Scissors"
-// ELSE
-//  PRINT "Something went wrong"
+    // ELSE
+    else {
+        //  PRINT "Something went wrong!"
+        log("Something went wrong!");
+    }
 // ENDIF
+}
 // END playRound function
 // SET variable humanSelection to run the get human choice function
+let humanSelection = getHumanChoice();
 // SET variable computerSelection to run the get computer choice function
-// CALL playRound function with humanSelection and computerSelection 
+let computerSelection = getComputerChoice();
+// CALL playRound function with humanSelection and computerSelection
+playRound(humanSelection, computerSelection);
