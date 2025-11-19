@@ -27,7 +27,7 @@ function getComputerChoice() {
     log(computerChoice);
 }
 // CALL computer choice function
-getComputerChoice();
+// getComputerChoice();
 // END Computer decides on choice
 
 // START Human decides on choice
@@ -47,7 +47,7 @@ function getHumanChoice () {
     }
 }
 // CALL human choice function
-getHumanChoice();
+// getHumanChoice();
 // END Human decides on a choice
 // SET variables for human score and computer score to track
 // SET current scores to 0
@@ -81,3 +81,8 @@ let computerScore = 0;
 //  PRINT "You tie! Scissors ties with Scissors"
 // ELSE
 //  PRINT "Something went wrong"
+// ENDIF
+// END playRound function
+// SET variable humanSelection to run the get human choice function
+// SET variable computerSelection to run the get computer choice function
+// CALL playRound function with humanSelection and computerSelection 
