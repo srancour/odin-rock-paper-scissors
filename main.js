@@ -31,13 +31,20 @@ getComputerChoice();
 // END Computer decides on choice
 
 // START Human decides on choice
-// DISPLAY "Rock, paper, or scissors?"
-// GET Human choice
-// IF Human choice is rock THEN
-//  SET variable to "rock"
-// ELSE IF Human choice is paper THEN
-//  SET variable to "paper"
-// ELSE IF Human choice is scissors THEN
-//  SET variable to "scissors"
-// ELSE
-//  DISPLAY "Not a valid choice."
+function getHumanChoice () {
+    // DISPLAY "Rock, paper, or scissors?"
+    // GET Human choice
+    let humanChoice = prompt("Rock, paper, or scissors");
+    humanChoice = humanChoice.toLowerCase();
+    // IF Human choice is rock, paper, or scissors THEN move on
+    if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
+
+    } // ELSE DISPLAY "Not a valid choice. Rock, paper, or scissors"
+    else {
+        // GET Human choice
+        humanChoice = prompt("Not a valid choice. Rock, paper, or scissors");
+    }
+}
+// CALL human choice function
+getHumanChoice();
+// END Human decides on a choice
