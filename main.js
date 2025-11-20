@@ -39,6 +39,7 @@ let computerScore = 0;
 // Function to play a single round of rock, paper, scissors, displays results, and adds to score
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock") {
+        // Checks each option when the human chooses rock
         if (computerChoice === "rock") {
             log("You tie! Rock ties with Rock");
         } else if (computerChoice === "paper") {
@@ -49,6 +50,7 @@ function playRound(humanChoice, computerChoice) {
             humanScore++;
         }
     } else if (humanChoice === "paper") {
+        // Checks each option when the human chooses paper
         if (computerChoice === "rock") {
             log("You win! Paper covers Rock");
             humanScore++;
@@ -59,6 +61,7 @@ function playRound(humanChoice, computerChoice) {
             computerScore++;
         }
     } else if (humanChoice === "scissors") {
+        // Checks each option when the human chooses scissors
         if (computerChoice === "rock") {
             log("You lose! Rock crushes Scissors");
             computerScore++;
