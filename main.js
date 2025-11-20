@@ -1,162 +1,92 @@
+// To shorten log command later on
 const log = console.log;
-// log("Hello World");
 
-// START Computer decides on choice
+// Function to get a random choice from the computer from 1-3
 function getComputerChoice() {
-    // COMPUTE randomly 1, 2, or 3 for computer's choice
-    // SET variable to computer's choice
     let computerChoice = Math.floor(Math.random() * 3) + 1;
-    // log(computerChoice);
-    // IF choice is 1 THEN
+    // Set option to text version of choice (1=rock 2=paper 3=scissors) and return it
     if (computerChoice === 1){
-        //  SET variable to "rock"
         computerChoice = "rock";
-        // PRINT computerChoice
-        log(computerChoice);
-        // RETURN computerChoice
         return computerChoice;
-    } // ELSE IF choice is 2 THEN
-    else if (computerChoice === 2){
-        //  SET variable to "paper"
+    } else if (computerChoice === 2){
         computerChoice = "paper";
-        // PRINT computerChoice
-        log(computerChoice);
-        // RETURN computerChoice
         return computerChoice;
-    } // ELSE IF choice is 3 THEN
-    else if (computerChoice === 3){
-        //  SET variable to "scissors"
+    } else if (computerChoice === 3){
         computerChoice = "scissors";
-        // PRINT computerChoice
-        log(computerChoice);
-        // RETURN computerChoice
         return computerChoice;
-    } // ELSE
-    else {
-        //  PRINT warning
+    } else {
+        // In case anything goes wrong
         console.warn("Number out of bounds");
-    } // ENDIF
+    }
 }
-// CALL computer choice function
-// getComputerChoice();
-// END Computer decides on choice
 
-// START Human decides on choice
+// Function to get choice from the human
 function getHumanChoice () {
-    // DISPLAY "Rock, paper, or scissors?"
-    // GET Human choice
     let humanChoice = prompt("Rock, paper, or scissors");
-    // SET humanChoice to lower case so no matter what a user puts in, it will work
+    // Set option to lower case to make it so no matter casing from the human will be processed
     humanChoice = humanChoice.toLowerCase();
-    // IF Human choice is rock, paper, or scissors THEN move on
     if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
-        // RETURN humanChoice
         return humanChoice;
-    } // ELSE DISPLAY "Not a valid choice. Rock, paper, or scissors"
-    else {
-        // GET Human choice
+    } else {
+        // If the human chooses something that's not an option, ask again
         humanChoice = prompt("Not a valid choice. Rock, paper, or scissors");
     }
 }
-// CALL human choice function
-// getHumanChoice();
-// END Human decides on a choice
-// SET variables for human score and computer score to track
-// SET current scores to 0
+
 let humanScore = 0;
 let computerScore = 0;
 
-// START playRound function that takes human choice and computer choice as parameters
+// Function to play a single round of rock, paper, scissors, displays results, and adds to score
 function playRound(humanChoice, computerChoice) {
-// IF human choice is rock THEN
     if (humanChoice === "rock") {
-        // IF computer choice is rock THEN
         if (computerChoice === "rock") {
-            //  PRINT "You tie! Rock ties with Rock"
             log("You tie! Rock ties with Rock");
-        } // ELSE IF computer choice is paper THEN
-        else if (computerChoice === "paper") {
-            //  PRINT "You lose! Paper covers Rock"
+        } else if (computerChoice === "paper") {
             log("You lose! Paper covers Rock");
-            //  INCREMENT computer score
             computerScore++;
-        } // ELSE IF computer choice is scissors THEN
-        else if (computerChoice === "scissors") {
-            //  PRINT "You win! Rock crushes Scissors"
+        } else if (computerChoice === "scissors") {
             log("You win! Rock crushes Scissors");
-            //  INCREMENT human score
             humanScore++;
         }
-        //ENDIF
-    } // ELSE IF human choice is paper THEN
-    else if (humanChoice === "paper") {
-        // IF computer choice is rock THEN
+    } else if (humanChoice === "paper") {
         if (computerChoice === "rock") {
-            //  PRINT "You win! Paper covers Rock"
             log("You win! Paper covers Rock");
-            //  INCREMENT human score
             humanScore++;
-        } // ELSE IF computer choice is paper THEN
-        else if (computerChoice === "paper") {
-            //  PRINT "You tie! Paper ties with Paper"
+        } else if (computerChoice === "paper") {
             log("You tie! Paper ties with Paper");
-        } // ELSE IF computer choice is scissors THEN
-        else if (computerChoice === "scissors") {
-            //  PRINT "You lose! Scissors cut Paper"
+        } else if (computerChoice === "scissors") {
             log("You lose! Scissors cut Paper")
-            //  INCREMENT computer score
             computerScore++;
         }
-        //ENDIF
-    } // ELSE IF human choice is scissors THEN
-    else if (humanChoice === "scissors") {
-        // IF computer choice is rock THEN
+    } else if (humanChoice === "scissors") {
         if (computerChoice === "rock") {
-            //  PRINT "You lose! Rock crushes Scissors"
             log("You lose! Rock crushes Scissors");
-            //  INCREMENT computer score
             computerScore++;
-        } // ELSE IF computer choice is paper THEN
-        else if (computerChoice === "paper") {
-            //  PRINT "You win! Scissors cut Paper"
+        } else if (computerChoice === "paper") {
             log("You win! Scissors cut Paper");
-            //  INCREMENT human score
             humanScore++;
-        } // ELSE IF computer choice is scissors THEN
-        else if (computerChoice === "scissors") {
-            //  PRINT "You tie! Scissors ties with Scissors"
+        } else if (computerChoice === "scissors") {
             log("You tie! Scissors ties with Scissors");
         }
-        //ENDIF
-    } // ELSE
-    else {
-        //  PRINT "Something went wrong!"
+    } else {
+        //  In case something goes wrong
         log("Something went wrong!");
     }
-    // ENDIF
-    // PRINT current score
     log(`Current score: You ${humanScore} / Computer ${computerScore}`);
 }
-// END playRound function
 
-// START playGame function with number of rounds as a variable defaulted to 5
+
+// Function to play the game with a certain number of rounds defaulted to 5
 function playGame(rounds = 5) {
-    // SET i to 0
     let i = 0;
-    // WHILE i less than number of rounds
     while (i < rounds) {
-        // SET variable humanSelection to run the get human choice function
+        // Call the choice functions each time to get new choices
         let humanSelection = getHumanChoice();
-        // SET variable computerSelection to run the get computer choice function
         let computerSelection = getComputerChoice();
-        // CALL playRound function with humanSelection and computerSelection
         playRound(humanSelection, computerSelection);
-        // INCREMENT i
         i++;
     }
-    // ENDWHILE
 }
-// END playGame function
 
 // CALL playGame function
 playGame();
