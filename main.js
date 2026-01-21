@@ -80,16 +80,35 @@ function playRound(humanChoice, computerChoice) {
 
 
 // Function to play the game with a certain number of rounds defaulted to 5
-function playGame(rounds = 5) {
-    let i = 0;
-    while (i < rounds) {
+function playGame(humanSelection) {
+    // let i = 0;
+    // while (i < rounds) {
         // Call the choice functions each time to get new choices
-        let humanSelection = getHumanChoice();
+        // let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
-        i++;
-    }
+        // i++;
+    // }
 }
 
 // CALL playGame function
-playGame();
+// playGame();
+
+const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper");
+const scissorsButton = document.getElementById("scissors");
+
+rockButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    playGame(rockButton.id);
+});
+
+paperButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    playGame(paperButton.id);
+});
+
+scissorsButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    playGame(scissorsButton.id);
+});
