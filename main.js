@@ -41,41 +41,68 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock") {
         // Checks each option when the human chooses rock
         if (computerChoice === "rock") {
-            log("You tie! Rock ties with Rock");
+            choicePara.textContent = "You tie! Rock ties with Rock";
+            results.append(choicePara);
         } else if (computerChoice === "paper") {
-            log("You lose! Paper covers Rock");
+            choicePara.textContent = "You lose! Paper covers Rock";
+            results.append(choicePara);
             computerScore++;
         } else if (computerChoice === "scissors") {
-            log("You win! Rock crushes Scissors");
+            choicePara.textContent = "You win! Rock crushes Scissors";
+            results.append(choicePara);
             humanScore++;
         }
     } else if (humanChoice === "paper") {
         // Checks each option when the human chooses paper
         if (computerChoice === "rock") {
-            log("You win! Paper covers Rock");
+            choicePara.textContent = "You win! Paper covers Rock";
+            results.append(choicePara);
             humanScore++;
         } else if (computerChoice === "paper") {
-            log("You tie! Paper ties with Paper");
+            choicePara.textContent = "You tie! Paper ties with Paper";
+            results.append(choicePara);
         } else if (computerChoice === "scissors") {
-            log("You lose! Scissors cut Paper")
+            choicePara.textContent = "You lose! Scissors cut Paper";
+            results.append(choicePara);
             computerScore++;
         }
     } else if (humanChoice === "scissors") {
         // Checks each option when the human chooses scissors
         if (computerChoice === "rock") {
-            log("You lose! Rock crushes Scissors");
+            choicePara.textContent = "You lose! Rock crushes Scissors";
+            results.append(choicePara);
             computerScore++;
         } else if (computerChoice === "paper") {
-            log("You win! Scissors cut Paper");
+            choicePara.textContent = "You win! Scissors cut Paper";
+            results.append(choicePara);
             humanScore++;
         } else if (computerChoice === "scissors") {
-            log("You tie! Scissors ties with Scissors");
+            choicePara.textContent = "You tie! Scissors ties with Scissors";
+            results.append(choicePara);
         }
     } else {
         //  In case something goes wrong
-        log("Something went wrong!");
+        choicePara.textContent = "Something went wrong!";
+        results.append(choicePara);
     }
-    log(`Current score: You ${humanScore} / Computer ${computerScore}`);
+    
+    resultsPara.textContent = `Current score: You ${humanScore} / Computer ${computerScore}`;
+    results.append(resultsPara);
+    
+    if (computerScore == 5) {
+        scorePara.textContent = "The computer won. Good luck next time.";
+        results.append(scorePara);
+        computerScore = 0;
+        humanScore = 0;
+    } else if (humanScore == 5) {
+        scorePara.textContent = "You won! Great job!";
+        results.append(scorePara);
+        computerScore = 0;
+        humanScore = 0;
+    } else {
+        scorePara.textContent = "";
+        results.append(scorePara);
+    }
 }
 
 
@@ -97,6 +124,11 @@ function playGame(humanSelection) {
 const rockButton = document.getElementById("rock");
 const paperButton = document.getElementById("paper");
 const scissorsButton = document.getElementById("scissors");
+const results = document.getElementById("results");
+
+const choicePara = document.createElement("p");
+const resultsPara = document.createElement("p");
+const scorePara = document.createElement("p");
 
 rockButton.addEventListener("click", (event) => {
     event.preventDefault();
